@@ -77,13 +77,13 @@
     <div class="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr] my-5 w-full">
       <div class="px-5">
         <div>
-          <h1 class="font-semibold text-xl lg:text-3xl">Berita Terkini</h1>
+          <h1 class="font-semibold text-xl lg:text-2xl">Berita Terkini</h1>
           <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
 
           <div class="grid grid-cols-[144px_1fr] gap-5 h-fit">
             <img src="{{ asset('img/village-3.png') }}" class="h-auto w-36 object-center object-cover" alt="">
             <div>
-              <h2 class="font-semibold text-base lg:text-2xl">Judul</h2>
+              <h2 class="font-semibold text-base lg:text-1xl">Judul</h2>
               <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto rem nesciunt esse
                 ab ratione! Nobis
                 soluta dignissimos qui esse molestias beatae minus, amet eos debitis voluptatem assumenda earum totam.
@@ -94,7 +94,7 @@
           <div class="grid grid-cols-[144px_1fr] gap-5 h-fit">
             <img src="{{ asset('img/village-3.png') }}" class="h-auto w-36 object-center object-cover" alt="">
             <div>
-              <h2 class="font-semibold text-base lg:text-2xl">Judul</h2>
+              <h2 class="font-semibold text-base lg:text-1xl">Judul</h2>
               <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto rem nesciunt esse
                 ab ratione! Nobis
                 soluta dignissimos qui esse molestias beatae minus, amet eos debitis voluptatem assumenda earum totam.
@@ -104,7 +104,7 @@
         </div>
 
         <div>
-          <h1 class="font-semibold text-xl lg:text-3xl mt-5">Galeri & Foto</h1>
+          <h1 class="font-semibold text-xl lg:text-2xl mt-5">Galeri & Foto</h1>
           <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
         </div>
 
@@ -120,7 +120,7 @@
 
       <div class="h-24 w-full">
           <div>
-            <h1 class="font-semibold text-xl lg:text-3xl">Agenda Kegiatan</h1>
+            <h1 class="font-semibold text-xl lg:text-2xl">Agenda Kegiatan</h1>
             <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
             <div>
               <div class="grid grid-cols-[1fr_4fr] gap-5 w-full">
@@ -141,7 +141,7 @@
       <div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15816.561555109225!2d110.23627830023555!3d-7.668052306995701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af48df458c877%3A0x91e301a8e22bebc!2sPantok%20Kulon%2C%20Banjaroyo%2C%20Kec.%20Kalibawang%2C%20Kabupaten%20Kulon%20Progo%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1709318730090!5m2!1sid!2sid"
-          class="w-full h-auto" style="border:0;" allowfullscreen="" loading="lazy"
+          class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
