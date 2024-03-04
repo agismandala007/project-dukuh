@@ -11,6 +11,9 @@
 |
 */
 
+use App\Providers\AgendaServiceProvider;
+use App\Providers\AnggotaServiceProvider;
+use App\Providers\BeritaServiceProvider;
 use App\Providers\DemografisServiceProvider;
 
 $app = new Illuminate\Foundation\Application(
@@ -43,7 +46,9 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 $app->register(DemografisServiceProvider::class);
-
+$app->register(AgendaServiceProvider::class);
+$app->register(BeritaServiceProvider::class);
+$app->register(AnggotaServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

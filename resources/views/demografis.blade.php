@@ -19,56 +19,56 @@
     use Carbon\Carbon;
     @endphp
 
-    <div class="min-h-[800px]">
-        <div class="flex flex-col mt-10">
-            <div class="px-2 lg:px-16 mx-10">
-                <div class="flex flex-row w-fit mx-auto">
-                    <dt class="mb-2 text-xl lg:text-3xl w-fit font-extrabold">Demografis</dt>
-                    <dt class="mb-2 ml-2 text-xl lg:text-3xl w-fit font-extrabold">Pantog</dt>
-                    <dt class="mb-2 ml-2 text-xl lg:text-3xl font-extrabold text-teal-500">Kulon</dt>
-                </div>
-                <p class="text-base mt-2 w-full indent-9 break-all">Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Laudantium ipsa voluptatibus tempora enim laboriosam pariatur sit dolores
-                    doloribus commodi, quisquam dolore? Repellat, at perspiciatis fugiat minus doloribus delectus illum
-                    odit?</p>
-            </div>
+    <div class="min-h-[800px] mx-10">
+        <div class="flex flex-row bg-[#f5f5f5] p-2 text-sm items-center text-[#999999] rounded-md">
+            <a href="{{ route('home') }}" class="mr-2">
+                <img src="{{ asset('img/home.svg') }}" alt="" class="w-4 h-auto"></a>
+            <p class="mr-2">/</p>
+            <a href="{{ route('demografis') }}">Demografis</a>
         </div>
 
+        <div class="my-5">
+            <h1 class="font-semibold text-xl lg:text-2xl">Demografis Pantog Kulon</h1>
+            <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
+            <p class="text-base mt-5 w-full indent-9 break-all">Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Laudantium ipsa voluptatibus tempora enim laboriosam pariatur sit dolores
+                doloribus commodi, quisquam dolore? Repellat, at perspiciatis fugiat minus doloribus delectus illum
+                odit?</p>
 
-        <div class="flex flex-col-reverse lg:flex-row mx-auto my-10 w-fit">
-            <div
-                class="flex flex-col bg-[#E6F4F1] justify-between w-fit mx-5 p-5 border border-gray-200 rounded-md shadow-2xl">
-                <div class="mx-4 mb-2">
-                    <label for="filter" class="block text-md font-semibold text-[#232301]">Filter:</label>
-                    <select id="filter" onchange="updateChart()"
-                        class="font-Inter mt-1 p-2 border border-gray-300 rounded-md w-full">
-                        <option value="umur">Umur</option>
-                        <option value="jenis_kelamin">Jenis Kelamin</option>
-                        <option value="mata_pencarian">Pekerjaan</option>
-                        <option value="tingkat_pendidikan">Pendidikan</option>
-                        <option value="status">Status</option>
-                        <option value="rt">RT</option>
-                        <option value="agama">Agama</option>
-                    </select>
-                </div>
-
-                <div class="flex flex-wrap items-center justify-center mt-6">
-                    <div class="mx-4 w-full lg:w-auto">
-                        <canvas id="myPieChart" class="h-[300px] md:h-[400px] w-full lg:w-[400px]"></canvas>
+            <div class="flex flex-col-reverse lg:flex-row mx-auto my-10 w-fit">
+                <div
+                    class="flex flex-col bg-[#E6F4F1] justify-between w-fit p-5 border border-gray-200 rounded-md shadow-2xl">
+                    <div class="mx-4 mb-2">
+                        <label for="filter" class="block text-md font-semibold text-[#232301]">Filter:</label>
+                        <select id="filter" onchange="updateChart()"
+                            class="font-Inter mt-1 p-2 border border-gray-300 rounded-md w-full text-base lg:text-md">
+                            <option value="umur">Umur</option>
+                            <option value="jenis_kelamin">Jenis Kelamin</option>
+                            <option value="mata_pencarian">Pekerjaan</option>
+                            <option value="tingkat_pendidikan">Pendidikan</option>
+                            <option value="status">Status</option>
+                            <option value="rt">RT</option>
+                            <option value="agama">Agama</option>
+                        </select>
                     </div>
 
-                    <div
-                        class="mt-8 mx-6 p-6 md:p-10 bg-white text-[#232301] shadow-md rounded-lg w-fit lg:w-auto relative">
-                        <div class="absolute bottom-0 left-0 w-1 h-full bg-[#7C91BC]"></div>
-                        <div id="labelCounts">
+                    <div class="flex flex-wrap items-center justify-center mt-6">
+                        <div class="mx-4 w-full lg:w-auto">
+                            <canvas id="myPieChart" class="h-[300px] md:h-[400px] w-full lg:w-[400px]"></canvas>
                         </div>
+
+                        <div
+                            class="mt-8 mx-6 p-6 md:p-10 bg-white text-[#232301] shadow-md rounded-lg w-fit lg:w-auto relative">
+                            <div class="absolute bottom-0 left-0 w-1 h-full bg-[#7C91BC]"></div>
+                            <div id="labelCounts">
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
-
     </div>
 
     @include('components.footer')
@@ -85,11 +85,21 @@
         foreach ($data as $item) {
             $temp = Carbon::parse($item->tanggal_lahir)->age;
 
-            if ($temp > 0 && $temp <= 5){$umur['balita']++;} 
-            elseif ($temp> 5 && $temp <= 10) {$umur['anak-anak']++;} 
-            elseif ($temp> 10 && $temp <= 24) {$umur['remaja']++;} 
-            elseif ($temp> 24 && $temp <= 60) {$umur['dewasa']++;}
-            elseif ($temp> 60) {$umur['lansia']++;}
+            if ($temp > 0 && $temp <= 5){
+                $umur['balita']++;
+            } 
+            elseif ($temp> 5 && $temp <= 10){
+                $umur['anak-anak']++;
+            } 
+            elseif ($temp> 10 && $temp <= 24){
+                $umur['remaja']++;
+            } 
+            elseif ($temp> 24 && $temp <= 60){
+                $umur['dewasa']++;
+            }
+            elseif ($temp> 60){
+                $umur['lansia']++;
+            }
         }
     @endphp
 

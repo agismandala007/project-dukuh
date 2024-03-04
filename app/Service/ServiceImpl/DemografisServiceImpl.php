@@ -34,9 +34,9 @@ class DemografisServiceImpl implements DemografisService
         return $this->model->all();
     }
 
-    public function paginate()
+    public function paginate(int $val)
     {
-        return $this->model->paginate(10)->onEachSide(-0.2);
+        return $this->model->paginate($val)->onEachSide(-0.2);
     }
 
     public function delete(string $id)

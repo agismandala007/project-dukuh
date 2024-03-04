@@ -1,5 +1,5 @@
 <div class="sticky top-0 z-50">
-    <footer class="bg-[#F4F4ED] text-[#232301] font-sans py-3 shadow-xl relative h-fit">
+    <footer class="bg-[#0088cc] text-white font-sans py-3 shadow-xl relative h-fit">
         <div class="flex justify-around m-5">
             <div class="flex flex-col my-auto ml-3 md:ml-8 w-2/6">
                 <div class="flex flex-row">

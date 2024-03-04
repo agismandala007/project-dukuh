@@ -10,6 +10,10 @@
 <body>
   @include('components/header')
 
+  @php
+    use Carbon\Carbon;
+  @endphp
+
   <div>
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
       <div class="relative h-56 overflow-hidden md:h-96">
@@ -118,22 +122,26 @@
         </div>
       </div>
 
-      <div class="h-24 w-full">
-          <div>
-            <h1 class="font-semibold text-xl lg:text-2xl">Agenda Kegiatan</h1>
-            <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
-            <div>
-              <div class="grid grid-cols-[1fr_4fr] gap-5 w-full">
-                <div class="bg-[#0088cc] text-white p-5 font-semibold rounded-md">
-                    <p>Jul 06 2020</p>
+      <div class="px-5 h-auto w-full">
+        <div>
+          <h1 class="font-semibold text-xl lg:text-2xl">Agenda Kegiatan</h1>
+          <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
+          @foreach ($agenda as $item)
+          <div class="my-5">
+            <a href="" class="w-full h-full">
+              <div class="grid grid-cols-[1fr_4fr] gap-5 w-full hover:bg-slate-200">
+                <div class="bg-[#0088cc] text-white p-5 font-semibold rounded-md text-center">
+                  <p>{{ Carbon::parse($item->tanggal_kegiatan)->format('Y M d') }}</p>
                 </div>
                 <div class="">
-                  <h2 class="text-xl font-semibold text-[#0088cc]">Musyawarah Desa Pembentukan BUMDes</h2>
-                  <p class="text-base">Lokasi : Aula Desa</p>
+                  <h2 class="text-xl font-semibold text-[#0088cc]">{{ $item->nama }}</h2>
+                  <p class="text-base">Lokasi : {{ $item->lokasi }}</p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
+          @endforeach
+        </div>
       </div>
     </div>
 

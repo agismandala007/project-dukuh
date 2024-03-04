@@ -29,17 +29,24 @@ class AgendaServiceImpl implements AgendaService
         return $this->model->where('id', $id)->get();
     }
 
-    public function limit(string $limit)
-    {
-        return $this->model->orderByDesc('tanggal_kegiatan')->limit(10);
-    }
     public function all()
     {
+        return $this->model->all();
     }
-    public function paginate()
+
+    public function limit(int $val)
     {
+        return $this->model->orderByDesc('tanggal_kegiatan')->limit($val)->get();
     }
+
+
+    public function paginate(int $val)
+    {
+        return $this->model->orderByDesc('created_at')->paginate($val)->onEachSide(-0.2);
+    }
+
     public function delete(string $id)
     {
+        $this->model->where('id', $id)->delete();
     }
 }

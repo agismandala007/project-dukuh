@@ -2,16 +2,16 @@
 
 namespace App\Service\ServiceImpl;
 
-use App\Models\Berita;
-use App\Service\BeritaService;
+use App\Models\Anggota;
+use App\Service\AnggotaService;
 
-class BeritaServiceImpl implements BeritaService
+class AnggotaServiceImpl implements AnggotaService
 {
-    private Berita $model;
+    private Anggota $model;
 
     public function __construct()
     {
-        $this->model = new Berita();
+        $this->model = new Anggota();
     }
 
     public function store(array $data)
@@ -34,15 +34,9 @@ class BeritaServiceImpl implements BeritaService
         return $this->model->all();
     }
 
-    public function limit(int $val)
-    {
-        return $this->model->orderByDesc('created_at')->limit($val)->get();
-    }
-
-
     public function paginate(int $val)
     {
-        return $this->model->orderByDesc('created_at')->paginate($val)->onEachSide(-0.2);
+        return $this->model->paginate($val)->onEachSide(-0.2);
     }
 
     public function delete(string $id)
