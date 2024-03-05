@@ -54,9 +54,11 @@ class DemografisController extends Controller
         return redirect()->action([DemografisController::class, 'admin']);
     }
 
-    public function edit(): Response
+    public function edit(string $id): Response
     {
-        return response()->view('admin.demografis.update');
+        return response()->view('admin.demografis.update', [
+            'data' => $this->service->show($id)
+        ]);
     }
 
     public function update(Request $request, string $id)

@@ -52,9 +52,11 @@ class GaleriController extends Controller
         return redirect()->action([GaleriController::class, 'admin']);
     }
 
-    public function edit(): Response
+    public function edit(string $id): Response
     {
-        return response()->view('admin.galeri.update');
+        return response()->view('admin.galeri.update', [
+            'data' => $this->service->show($id)
+        ]);
     }
 
     public function update(Request $request, string $id): RedirectResponse

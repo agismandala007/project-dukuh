@@ -32,7 +32,7 @@ class BeritaController extends Controller
     public function admin(): Response
     {
         return response()->view('admin.berita.index', [
-            'data' => $this->service->limit(5)
+            'data' => $this->service->paginate(5)
         ]);
     }
 
@@ -43,14 +43,15 @@ class BeritaController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+
         $validation = $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
             'gambar' => 'required|image|file|max:2048'
         ]);
 
-        if ($request->file('images')) {
-            $validation['gambar'] = $request->file('images')->store('post-images-berita');
+        if ($request->file('gambar')) {
+            $validation['gambar'] = $request->file('gambar')->store('post-images-berita');
         }
 
         $this->service->store($validation);
@@ -58,9 +59,11 @@ class BeritaController extends Controller
         return redirect()->action([BeritaController::class, 'admin']);
     }
 
-    public function edit(): Response
+    public function edit(string $id): Response
     {
-        return response()->view('admin.berita.update');
+        return response()->view('admin.berita.update', [
+            'data' => $this->service->show($id)
+        ]);
     }
 
     public function update(Request $request, string $id): RedirectResponse

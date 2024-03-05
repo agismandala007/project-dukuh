@@ -33,6 +33,7 @@ class AgendaController extends Controller
     public function admin(): Response
     {
         return response()->view('admin.agenda.index', [
+            'all' => $this->service->all(),
             'data' => $this->service->paginate(10)
         ]);
     }
@@ -56,9 +57,11 @@ class AgendaController extends Controller
         return redirect()->action([AgendaController::class, 'admin']);
     }
 
-    public function edit(): Response
+    public function edit(string $id): Response
     {
-        return response()->view('admin.agenda.update');
+        return response()->view('admin.agenda.update', [
+            'data' => $this->service->show($id)
+        ]);
     }
 
     public function update(Request $request, string $id)

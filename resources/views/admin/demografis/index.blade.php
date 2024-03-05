@@ -42,17 +42,20 @@
                             <td class="px-6 py-6 border">{{ $item->status }}</td>
                             <td class="px-6 py-6 border">{{ $item->tingkat_pendidikan }}</td>
                             <td class="px-6 py-6 border">{{ $item->mata_pencarian }}</td>
-                            <td class="px-6 py-6 border flex flex-col lg:flex-row justify-center ">
-                                <a href="{{ route('admin.demografis.edit', ['id' => $item->id]) }}"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Update</a>
-                                <form action="{{ route('admin.demografis.delete', ['id' => $item->id]) }}"
-                                    method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit"
-                                        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2">
-                                        Delete</button>
-                                </form>
+                            <td class="px-6 py-6 border">
+                                <div class="flex flex-col lg:flex-row justify-center">
+                                    <a href="{{ route('admin.demografis.edit', ['id' => $item->id]) }}"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Update</a>
+                                    <form action="{{ route('admin.demografis.delete', ['id' => $item->id]) }}"
+                                        method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit"
+                                            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2">
+                                            Delete</button>
+                                    </form>
+                                </div>
+                               
                             </td>
                         </tr>
                         @endforeach
