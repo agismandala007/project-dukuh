@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{ route('admin.anggota') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-7 h-7 text-gray-500 transition duration-75 group-hover:text-gray-900"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path fill-rule="evenodd"
@@ -80,7 +80,7 @@
                             d="M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z" />
                     </svg>
 
-                    <span class="flex-1 ms-3 whitespace-nowrap">Agenda Kegitana</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Agenda Kegiatan</span>
                 </a>
             </li>
             <li>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DemografisController;
 use App\Http\Controllers\GaleriController;
@@ -26,6 +27,19 @@ Route::get('/tentang', function () {
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/admin', [AdminController::class, 'admin'])->middleware('auth', 'verified')->name('admin');
+
+//Stuktur Anggota
+Route::get('/anggota', [AnggotaController::class, 'anggota'])->name('anggota');
+Route::get('/anggota/{id}', [AnggotaController::class, 'show'])->name('anggota.show');
+Route::prefix('/admin/anggota')->middleware('auth', 'verified')->group(function() {
+    Route::get('/', [AnggotaController::class, 'admin'])->name('admin.anggota');
+    Route::get('/create', [AnggotaController::class, 'create'])->name('admin.anggota.input');
+    Route::post('/create', [AnggotaController::class, 'store'])->name('admin.anggota.store');
+    Route::get('/update/{id}', [AnggotaController::class, 'edit'])->name('admin.anggota.edit');
+    Route::post('/update/{id}', [AnggotaController::class, 'update'])->name('admin.anggota.update');
+    Route::delete('/delete/{id}', [AnggotaController::class, 'delete'])->name('admin.anggota.delete');
+});
+
 
 // Agenda
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');

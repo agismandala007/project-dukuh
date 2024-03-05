@@ -25,7 +25,7 @@
     <nav class="bg-white border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ asset('img/logo-dukuh.png') }}" class="h-8" alt="Pantog Kulon Logo" />
+                <img src="{{ asset('img/logo-dukuh.png') }}" class="hidden lg:block h-8" alt="Pantog Kulon Logo" />
                 <a href="{{ route('home') }}"> <span
                         class="self-center text-2xl font-semibold whitespace-nowrap">Padukuhan Pantog
                         Kulon</span></a>

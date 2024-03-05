@@ -15,6 +15,8 @@ use App\Providers\AgendaServiceProvider;
 use App\Providers\AnggotaServiceProvider;
 use App\Providers\BeritaServiceProvider;
 use App\Providers\DemografisServiceProvider;
+use App\Providers\GaleriServiceProvider;
+use App\Providers\UserServiceProvider;
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
@@ -49,6 +51,8 @@ $app->register(DemografisServiceProvider::class);
 $app->register(AgendaServiceProvider::class);
 $app->register(BeritaServiceProvider::class);
 $app->register(AnggotaServiceProvider::class);
+$app->register(UserServiceProvider::class);
+$app->register(GaleriServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

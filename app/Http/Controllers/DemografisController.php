@@ -31,17 +31,22 @@ class DemografisController extends Controller
         ]);
     }
 
+    public function create(): Response
+    {
+        return response()->view('admin.demografis.create');
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $validation = $request->validate([
-            'rt' => 'required',
+            'rt' => 'required|min:1',
             'nama' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'agama' => 'required',
-            'status' => 'required',
-            'tingkat_pendidikan' => 'required',
-            'mata_pencarian' => 'required'
+            'jenis_kelamin' => 'required|min:1',
+            'agama' => 'required|min:1',
+            'status' => 'required|min:1',
+            'tingkat_pendidikan' => 'required|min:1',
+            'mata_pencarian' => 'required|min:1'
         ]);
 
         $this->service->store($validation);
