@@ -15,7 +15,7 @@
 
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-gray-200 rounded-lg mt-14">
-            <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-5 h-auto mb-4 ">
+            <div class="grid grid-cols-1 gap-5 h-auto mb-4 ">
                 <div class="relative overflow-x-auto h-fit rounded bg-gray-50 p-3">
                     <table class="w-full text-sm text-left">
                         <tr class="bg-slate-100">
@@ -54,26 +54,6 @@
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Tambah
                             Data</a>
                     </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28">
-                    <p class="text-2xl text-gray-400">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
-                </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28">
-                    <p class="text-2xl text-gray-400">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
                 </div>
             </div>
         </div>

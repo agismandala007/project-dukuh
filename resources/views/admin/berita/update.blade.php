@@ -21,7 +21,7 @@
                 <div class="mb-5">
                     <label for="judul" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
                     <input type="text" id="judul" name="judul"
-                        class="form-input  @error('judul') border-red-500 @enderror" value="{{ old('judul') }}" />
+                        class="form-input  @error('judul') border-red-500 @enderror" value="{{ old('judul') ?: $data[0]->judul }}" />
                     @error('judul')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                     @enderror

@@ -31,7 +31,7 @@ class AdminController extends Controller
     {
         return response()->view('admin.index', [
             'admin' => $this->userService->paginate(5),
-            'agenda' => $this->agendaService->paginate(15),
+            'agenda' => $this->agendaService->all(),
             'demografis' => $this->demografisService->all(),
             'anggota' => $this->anggotaService->paginate(15)
         ]);

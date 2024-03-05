@@ -14,8 +14,18 @@
     @include('components.admin.header')
 
     <div class="p-4 sm:ml-64">
-        <div class="p-4 border-gray-200 rounded-lg mt-14">
-            <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-5 h-auto mb-4 ">
+        <div class="mt-14">
+            <div class="flex flex-col justify-center pl-4 h-24 rounded bg-gray-50 relative">
+                <h5 class="text-base lg:text-2xl font-bold tracking-tight text-gray-900">
+                    Acara Mendatang</h5>
+                <div class="absolute bottom-0 left-0 w-1 h-full bg-[#15DDAB]"></div>
+                <p class="font-normal text-gray-700">
+                    {{ collect($all)->filter(function ($item) {return strtotime($item['tanggal_kegiatan']) >=
+                    strtotime(date('Y-m-d'));})->count() }}</p>
+            </div>
+        </div>
+        <div class="p-4 border-gray-200 rounded-lg">
+            <div class="grid grid-cols-1 gap-5 h-auto mb-4 ">
                 <div class="relative overflow-x-auto h-fit rounded bg-gray-50 p-3">
                     <table class="w-full text-sm text-left">
                         <tr class="bg-slate-100">
@@ -55,17 +65,6 @@
                         <a href="{{ route('admin.agenda.input') }}"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Tambah
                             Data</a>
-                    </div>
-                </div>
-
-                <div class="rounded bg-gray-50 w-full h-fit">
-                    <div class="flex flex-col justify-center pl-4 h-24 rounded bg-gray-50 relative">
-                        <h5 class="text-base lg:text-2xl font-bold tracking-tight text-gray-900">
-                            Acara Mendatang</h5>
-                        <div class="absolute bottom-0 left-0 w-1 h-full bg-[#15DDAB]"></div>
-                        <p class="font-normal text-gray-700">
-                            {{ collect($all)->filter(function ($item) {return strtotime($item['tanggal_kegiatan']) >=
-                            strtotime(date('Y-m-d'));})->count() }}</p>
                     </div>
                 </div>
             </div>

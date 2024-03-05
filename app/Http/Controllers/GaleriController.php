@@ -27,7 +27,7 @@ class GaleriController extends Controller
     public function admin(): Response
     {
         return response()->view('admin.galeri.index', [
-            'data' => $this->service->all()
+            'data' => $this->service->paginate(15)
         ]);
     }
 
@@ -43,8 +43,8 @@ class GaleriController extends Controller
             'gambar' => 'required|image|file|max:2048'
         ]);
 
-        if ($request->file('images')) {
-            $validation['gambar'] = $request->file('images')->store('post-images-galeri');
+        if ($request->file('gambar')) {
+            $validation['gambar'] = $request->file('gambar')->store('post-images-galeri');
         }
 
         $this->service->store($validation);
@@ -66,12 +66,12 @@ class GaleriController extends Controller
             'gambar' => 'required|image|file|max:2048'
         ]);
 
-        if ($request->file('images')) {
+        if ($request->file('gambar')) {
             if ($request->input('oldImage')) {
                 Storage::delete($request->input('oldImage'));
             }
 
-            $validation['gambar'] = $request->file('images')->store('post-images-galeri');
+            $validation['gambar'] = $request->file('gambar')->store('post-images-galeri');
         }
 
         $this->service->update($validation, $id);
