@@ -22,7 +22,7 @@
                         Pegawai</h5>
                     <div class="absolute bottom-0 left-0 w-1 h-full bg-[#15DDAB]"></div>
                     <p class="font-normal text-gray-700">
-                        {{collect($demografis)->count()}}</p>
+                        {{collect($anggota)->count()}}</p>
                 </div>
                 <div class="flex flex-col justify-center pl-4 h-24 rounded bg-gray-50 relative">
                     <h5 class="text-base lg:text-2xl font-bold tracking-tight text-gray-900">
