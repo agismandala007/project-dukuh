@@ -46,20 +46,11 @@
                         <tr class="bg-slate-100">
                             <th scope="col" class="px-6 py-6 border">Nama</th>
                             <th scope="col" class="px-6 py-6 border">Email</th>
-                            <th scope="col" class="px-6 py-6 border">Ubah</th>
                         </tr>
                         @foreach ($admin as $item)
                         <tr class="bg-white">
                             <td class="px-6 py-6 border">{{ $item->name }}</td>
                             <td class="px-6 py-6 border">{{ $item->email }}</td>
-                            <td class="border">
-                                <form action="" method="post" class="flex justify-center">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit"
-                                        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-2.5">Hapus</button>
-                                </form>
-                            </td>
                         </tr>
                         @endforeach
                     </table>

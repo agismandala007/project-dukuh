@@ -91,8 +91,11 @@ class BeritaController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
-        $this->service->delete($id);
+        $delete = $this->service->show($id);
 
+        Storage::delete($delete[0]->gambar);
+
+        $this->service->delete($id);
         return redirect()->action([BeritaController::class, 'admin']);
     }
 }

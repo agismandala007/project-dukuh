@@ -81,6 +81,10 @@ class GaleriController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
+        $delete = $this->service->show($id);
+
+        Storage::delete($delete[0]->gambar);
+
         $this->service->delete($id);
 
         return redirect()->action([GaleriController::class, 'admin']);
