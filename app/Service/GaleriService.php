@@ -7,6 +7,7 @@ interface GaleriService
     public function update(array $data, string $id);
     public function show(string $id);
     public function all();
+    public function limit(int $val);
     public function paginate(int $val);
     public function delete(string $id);
 }

@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{{ asset('img/logo-dukuh.png') }}">
+  <title>Padukuhan Watog Kulon</title>
+
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -11,7 +14,7 @@
   @include('components/header')
 
   @php
-    use Carbon\Carbon;
+  use Carbon\Carbon;
   @endphp
 
   <div>
@@ -80,45 +83,34 @@
 
     <div class="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr] my-5 w-full">
       <div class="px-5">
-        <div>
+        <div class="w-full">
           <h1 class="font-semibold text-xl lg:text-2xl">Berita Terkini</h1>
           <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
 
-          <div class="grid grid-cols-[144px_1fr] gap-5 h-fit">
-            <img src="{{ asset('img/village-3.png') }}" class="h-auto w-36 object-center object-cover" alt="">
-            <div>
-              <h2 class="font-semibold text-base lg:text-1xl">Judul</h2>
-              <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto rem nesciunt esse
-                ab ratione! Nobis
-                soluta dignissimos qui esse molestias beatae minus, amet eos debitis voluptatem assumenda earum totam.
-                Dolorum!</p>
+          @foreach ($berita as $item)
+          <a href="{{ route('berita.show', ['id' => $item->id]) }}" class="grid grid-cols-[144px_1fr] gap-5 h-fit py-2 my-3 rounded-lg hover:bg-slate-200">
+            <img src="{{ asset('storage/' . $item->gambar) }}" class="h-auto w-36 object-center object-cover"
+              alt="{{ $item->judul }}">
+            <div class="max-w-xs lg:max-w-prose">
+              <h2 class="font-semibold text-base lg:text-1xl">{{ $item->judul }}</h2>
+              <p class="truncate whitespace-normal h-32">{{ $item->deskripsi }}</p>
             </div>
-          </div>
-
-          <div class="grid grid-cols-[144px_1fr] gap-5 h-fit">
-            <img src="{{ asset('img/village-3.png') }}" class="h-auto w-36 object-center object-cover" alt="">
-            <div>
-              <h2 class="font-semibold text-base lg:text-1xl">Judul</h2>
-              <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto rem nesciunt esse
-                ab ratione! Nobis
-                soluta dignissimos qui esse molestias beatae minus, amet eos debitis voluptatem assumenda earum totam.
-                Dolorum!</p>
-            </div>
-          </div>
+          </a>
+          @endforeach
         </div>
 
         <div>
-          <h1 class="font-semibold text-xl lg:text-2xl mt-5">Galeri & Foto</h1>
+          <h1 class="font-semibold text-xl lg:text-2xl mt-5">Galeri/Album</h1>
           <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
         </div>
 
         <div class="grid grid-cols-3 w-full gap-5 h-fit">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
-          <img src="{{ asset('img/village-3.png') }}" class="h-auto w-60 object-center object-cover" alt="">
+          @foreach ($galeri as $item)
+          <div class="aspect-square relative">
+            <img src="{{ asset('storage/' . $item->gambar) }}" class="w-full h-full object-center object-cover" alt="">
+            <p class="absolute bottom-0 text-xs truncate lg:text-base font-bold w-full bg-[#0276cf] text-white text-center p-1 lg:p-3">{{$item->nama}}</p>
+          </div>
+          @endforeach
         </div>
       </div>
 
@@ -128,7 +120,7 @@
           <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
           @foreach ($agenda as $item)
           <div class="my-5">
-            <a href="" class="w-full h-full">
+            <a href="{{ route('agenda.show', ['id' => $item->id]) }}" class="w-full h-full">
               <div class="grid grid-cols-[1fr_4fr] gap-5 w-full hover:bg-slate-200">
                 <div class="bg-[#0088cc] text-white p-5 font-semibold rounded-md text-center">
                   <p>{{ Carbon::parse($item->tanggal_kegiatan)->format('Y M d') }}</p>

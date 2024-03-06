@@ -26,7 +26,7 @@
                         @foreach ($data as $item)
                         <tr class="bg-white">
                             <td class="px-6 py-6 border">{{ $item->nama }}</td>
-                            <td class="px-6 py-6 border"><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->judul }}"></td>
+                            <td class="px-6 py-6 border"><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->judul }}" class="h-auto w-36 object-center object-cover"></td>
                             <td class="px-6 py-6 border">
                                 <div class="flex flex-col lg:flex-row justify-center">
                                     <a href="{{ route('admin.galeri.edit', ['id' => $item->id]) }}"

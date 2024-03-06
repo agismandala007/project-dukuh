@@ -19,7 +19,9 @@ class AnggotaController extends Controller
 
     public function anggota(): Response
     {
-        return response()->view('anggota');
+        return response()->view('anggota', [
+            'data' => $this->service->all()
+        ]);
     }
 
     public function show(string $id): Response
@@ -32,7 +34,7 @@ class AnggotaController extends Controller
     public function admin(): Response
     {
         return response()->view('admin.anggota.index', [
-            'data' => $this->service->all()
+            'data' => $this->service->paginate(10)
         ]);
     }
 
@@ -44,13 +46,14 @@ class AnggotaController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validation = $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
+            'nama' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
             'gambar' => 'required|image|file|max:2048'
         ]);
 
-        if ($request->file('images')) {
-            $validation['gambar'] = $request->file('images')->store('post-images-anggota');
+        if ($request->file('gambar')) {
+            $validation['gambar'] = $request->file('gambar')->store('post-images-anggota');
         }
 
         $this->service->store($validation);
@@ -68,17 +71,18 @@ class AnggotaController extends Controller
     public function update(Request $request, string $id): RedirectResponse
     {
         $validation = $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
+            'nama' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
             'gambar' => 'required|image|file|max:2048'
         ]);
 
-        if ($request->file('images')) {
+        if ($request->file('gambar')) {
             if ($request->input('oldImage')) {
                 Storage::delete($request->input('oldImage'));
             }
 
-            $validation['gambar'] = $request->file('images')->store('post-images-anggota');
+            $validation['gambar'] = $request->file('gambar')->store('post-images-anggota');
         }
 
         $this->service->update($validation, $id);

@@ -19,7 +19,9 @@ class BeritaController extends Controller
 
     public function berita(): Response
     {
-        return response()->view('berita');
+        return response()->view('berita', [
+            'data' => $this->service->paginate(5)
+        ]);
     }
 
     public function show(string $id): Response

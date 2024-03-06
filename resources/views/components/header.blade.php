@@ -62,13 +62,13 @@
                                         Kami</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a>
+                                    <a href="{{ route('visi.misi') }}" class="block px-4 py-2 hover:bg-gray-100">Visi Misi</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sejarah</a>
+                                    <a href="{{ route('sejarah') }}" class="block px-4 py-2 hover:bg-gray-100">Sejarah</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Stuktur Padukuhan</a>
+                                    <a href="{{ route('anggota') }}" class="block px-4 py-2 hover:bg-gray-100">Stuktur Padukuhan</a>
                                 </li>
                             </ul>
                         </div>

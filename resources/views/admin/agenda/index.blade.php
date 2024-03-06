@@ -14,17 +14,7 @@
     @include('components.admin.header')
 
     <div class="p-4 sm:ml-64">
-        <div class="mt-14">
-            <div class="flex flex-col justify-center pl-4 h-24 rounded bg-gray-50 relative">
-                <h5 class="text-base lg:text-2xl font-bold tracking-tight text-gray-900">
-                    Acara Mendatang</h5>
-                <div class="absolute bottom-0 left-0 w-1 h-full bg-[#15DDAB]"></div>
-                <p class="font-normal text-gray-700">
-                    {{ collect($all)->filter(function ($item) {return strtotime($item['tanggal_kegiatan']) >=
-                    strtotime(date('Y-m-d'));})->count() }}</p>
-            </div>
-        </div>
-        <div class="p-4 border-gray-200 rounded-lg">
+        <div class="p-4 border-gray-200 rounded-lg mt-14">
             <div class="grid grid-cols-1 gap-5 h-auto mb-4 ">
                 <div class="relative overflow-x-auto h-fit rounded bg-gray-50 p-3">
                     <table class="w-full text-sm text-left">
@@ -40,7 +30,9 @@
                             <td class="px-6 py-6 border">{{ $item->nama }}</td>
                             <td class="px-6 py-6 border">{{ $item->tanggal_kegiatan }}</td>
                             <td class="px-6 py-6 border">{{ $item->lokasi }}</td>
-                            <td class="px-6 py-6 border">{{ $item->deskripsi }}</td>
+                            <td class="px-6 py-6 border max-w-xs lg:max-w-prose">
+                                <p class="truncate whitespace-normal h-32">{{ $item->deskripsi }}</p>
+                            </td>
                             <td class="px-6 py-6 border">
                                 <div class="flex flex-col lg:flex-row justify-center">
                                     <a href="{{ route('admin.agenda.edit', ['id' => $item->id]) }}"

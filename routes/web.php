@@ -21,12 +21,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/tentang', function () {
-    return view('tentang');
-})->name('tentang');
+Route::get('/visi-misi', function () {
+    return view('visi-misi');
+})->name('visi.misi');
+Route::get('/sejarah', function() {
+    return view('sejarah');
+})->name('sejarah');
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/admin', [AdminController::class, 'admin'])->middleware('auth', 'verified')->name('admin');
+Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
 
 //Stuktur Anggota
 Route::get('/anggota', [AnggotaController::class, 'anggota'])->name('anggota');

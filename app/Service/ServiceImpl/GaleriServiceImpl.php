@@ -34,6 +34,11 @@ class GaleriServiceImpl implements GaleriService
         return $this->model->all();
     }
 
+    public function limit(int $val)
+    {
+        return $this->model->orderByDesc('created_at')->limit($val)->get();
+    }
+
     public function paginate(int $val)
     {
         return $this->model->paginate($val);

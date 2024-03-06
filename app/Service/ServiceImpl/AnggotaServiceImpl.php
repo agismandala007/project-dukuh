@@ -29,6 +29,11 @@ class AnggotaServiceImpl implements AnggotaService
         return $this->model->where('id', $id)->get();
     }
 
+    public function showDukuh(string $val)
+    {
+        return $this->model->where('jabatan', $val)->get();
+    }
+
     public function all()
     {
         return $this->model->all();

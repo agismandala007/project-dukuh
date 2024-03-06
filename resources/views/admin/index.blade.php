@@ -19,7 +19,7 @@
             <div class="grid grid-cols-3 gap-4 mb-4">
                 <div class="flex flex-col justify-center pl-4 h-24 rounded bg-gray-50 relative">
                     <h5 class="text-base lg:text-2xl font-bold tracking-tight text-gray-900">
-                        Populasi</h5>
+                        Pegawai</h5>
                     <div class="absolute bottom-0 left-0 w-1 h-full bg-[#15DDAB]"></div>
                     <p class="font-normal text-gray-700">
                         {{collect($demografis)->count()}}</p>
@@ -54,6 +54,7 @@
                             <td class="px-6 py-6 border">{{ $item->email }}</td>
                             <td class="border">
                                 <form action="" method="post" class="flex justify-center">
+                                    @method('DELETE')
                                     @csrf
                                     <button type="submit"
                                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-2.5">Hapus</button>
@@ -69,26 +70,6 @@
 
                 <div class="rounded bg-gray-50 w-full h-fit">
                     <canvas id="chartPenduduk"></canvas>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28">
-                    <p class="text-2xl text-gray-400">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
-                </div>
-                <div class="flex items-center justify-center rounded bg-gray-50 h-28">
-                    <p class="text-2xl text-gray-400">
-                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 1v16M1 9h16" />
-                        </svg>
-                    </p>
                 </div>
             </div>
         </div>

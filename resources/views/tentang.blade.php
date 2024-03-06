@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo-dukuh.png') }}">
     <title>Profile Pantog Kulon</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -12,7 +13,7 @@
 
 <body>
     @include('components/header')
-    
+
     <div class="min-h-[800px] mx-10">
         <div class="flex flex-row bg-[#f5f5f5] p-2 text-sm items-center text-[#999999] rounded-md">
             <a href="{{ route('home') }}" class="mr-2">
@@ -109,42 +110,42 @@
                     <div class="absolute bottom-0 left-0 w-1 h-full bg-[#0088cc]"></div>
 
                     <h3>Desa Kertamulya - Padalarang - Bandung Barat</h3>
-                    <div class="px-5 py-5 lg:py-0 text-base">
+                    <div class="px-5 py-5 lg:py-0 text-sm lg:text-base">
                         <table>
-                            <tr>
-                                <td>Alamat</td>
-                                <td>:</td>
-                                <td>Jl. Raya Tagog No. 128 Padalarang</td>
+                            <tr class="border-b-2 lg:border-b-0">
+                                <td class="align-text-top px-1">Alamat</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">Jl. Raya Tagog No. 128 Padalarang</td>
+                            </tr>
+
+                            <tr class="border-b-2 lg:border-b-0">
+                                <td class="align-text-top px-1">Kode Pos</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">40553</td>
+                            </tr>
+
+                            <tr class="border-b-2 lg:border-b-0">
+                                <td class="align-text-top px-1">No. Telp</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">022-6623181</td>
+                            </tr>
+
+                            <tr class="border-b-2 lg:border-b-0"> 
+                                <td class="align-text-top px-1">FAX</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">N/A</td>
+                            </tr>
+
+                            <tr class="border-b-2 lg:border-b-0">
+                                <td class="align-text-top px-1">Email</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">pemdes@kertamulya-padalarang.desa.id</td>
                             </tr>
 
                             <tr>
-                                <td>Kode Pos</td>
-                                <td>:</td>
-                                <td>40553</td>
-                            </tr>
-
-                            <tr>
-                                <td>No. Telp</td>
-                                <td>:</td>
-                                <td>022-6623181</td>
-                            </tr>
-
-                            <tr>
-                                <td>FAX</td>
-                                <td>:</td>
-                                <td>N/A</td>
-                            </tr>
-
-                            <tr>
-                                <td>Email</td>
-                                <td>:</td>
-                                <td>pemdes@kertamulya-padalarang.desa.id</td>
-                            </tr>
-
-                            <tr>
-                                <td>Website</td>
-                                <td>:</td>
-                                <td>kertamulya-padalarang.desa.id</td>
+                                <td class="align-text-top px-1">Website</td>
+                                <td class="align-text-top px-1">:</td>
+                                <td class="align-text-top px-1">kertamulya-padalarang.desa.id</td>
                             </tr>
 
                         </table>
@@ -157,26 +158,26 @@
                     <h1 class="font-semibold text-xl lg:text-2xl">Kepala Desa</h1>
                     <div class="bg-[#0088cc] rounded-md h-1 my-2 lg:my-3"></div>
                     <div class="flex flex-row">
-                        <img src="{{ asset('img/village-1.png') }}" alt=""
+                        <img src="{{ asset('storage/' . $data[0]->gambar ) }}" alt="foto-{{ $data[0]->nama }}"
                             class="h-auto lg:h-56 w-1/3 object-center object-cover">
                         <div class="px-5 py-5 lg:py-0 text-base">
                             <table>
-                                <tr>
-                                    <td>Nama</td>
-                                    <td>:</td>
-                                    <td>Pak Dukuh</td>
+                                <tr class="border-b-2 lg:border-b-0">
+                                    <td class="align-text-top px-1">Nama</td>
+                                    <td class="align-text-top px-1">:</td>
+                                    <td class="align-text-top px-1">{{ $data[0]->nama }}</td>
+                                </tr>
+
+                                <tr class="border-b-2 lg:border-b-0">
+                                    <td class="align-text-top px-1">NIP</td>
+                                    <td class="align-text-top px-1">:</td>
+                                    <td class="align-text-top px-1">{{ $data[0]->nip }}</td>
                                 </tr>
 
                                 <tr>
-                                    <td>NIP</td>
-                                    <td>:</td>
-                                    <td>40553</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Jabatan</td>
-                                    <td>:</td>
-                                    <td>Kepala Dukuh</td>
+                                    <td class="align-text-top px-1">Jabatan</td>
+                                    <td class="align-text-top px-1">:</td>
+                                    <td class="align-text-top px-1">{{ $data[0]->jabatan }}</td>
                                 </tr>
 
                             </table>
